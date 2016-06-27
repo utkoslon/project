@@ -11,7 +11,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+print(  )
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'compressor',
     'djangobower',
-    'bootstrap',
+    'crispy_forms',
+    'common',
+     'django_extensions',
+    #'django.contrib.sites',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -111,7 +115,7 @@ BOWER_PATH = '/usr/bin/bower'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
-
+CACHE_BACKEND = 'dummy:///'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -130,12 +134,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-MEDIA_ROOT = '/home/SmartFoods/mysite/blog/images/dishes'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = 'images/dishes/'
+MEDIA_URL = 'media/'
 
 #STATIC_ROOT = '/home/SmartFoods/mysite/blog/static/'
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -159,7 +163,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 COMPRESS_ENABLED = True
 COMPRESS_ROOT = 'staticfiles'
